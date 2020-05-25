@@ -2,8 +2,7 @@ import datetime
 import random
 import json
 
-
-player_name = str(input("Hello, what's your name? "))
+player_name = input(f"Hello, what's your name? ")
 secret = random.randint(1, 30)
 attempts = 0
 wrong_guesses = []
@@ -24,8 +23,8 @@ while True:
     attempts += 1
 
     if guess == secret:
-        print("You've guessed it - congratulations! It's number " + str(secret))
-        print("Attempts needed: " + str(attempts))
+        print(f"You've guessed it - congratulations! It's number {secret}")
+        print(f"Attempts needed: {attempts}")
         score_list.append(
             {
                 "attempts": attempts,
@@ -46,4 +45,5 @@ while True:
 
     with open("score_list.txt", "w") as score_file:
         score_file.write(json.dumps(score_list))
-        wrong_guesses.append(guess)
+
+    wrong_guesses.append(guess)
